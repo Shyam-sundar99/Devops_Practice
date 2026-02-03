@@ -1,0 +1,75 @@
+Perfect, shyam Let’s wire up Jenkins with Git so you can run a simple CI/CD pipeline 🚀  
+
+---
+
+## 🔗 Step 1: Install Git on your Jenkins server
+Make sure Git is available:
+```bash
+sudo apt install git -y
+git --version
+```
+
+---
+
+## ⚙️ Step 2: Configure Jenkins with GitHub/GitLab
+1. Go to **Jenkins Dashboard → Manage Jenkins → Plugins**.
+2. Install the **Git plugin** (and optionally **GitHub plugin**).
+3. Go to **Manage Jenkins → System**.
+4. Under **GitHub Servers**, add your GitHub credentials (either username/password or SSH key).
+
+---
+
+## 📂 Step 3: Create a Jenkins Job (Freestyle)
+1. Click **New Item → Freestyle Project**.
+2. In **Source Code Management**, select **Git**.
+3. Enter your repo URL:
+   - HTTPS: `https://github.com/username/repository.git`
+   - SSH: `git@github.com:username/repository.git`
+4. Add credentials if required.
+5. Save the job.
+
+---
+
+## 📝 Step 4: Create a Jenkins Pipeline (Jenkinsfile)
+For more control, use a pipeline. In your repo, add a file named **Jenkinsfile**:
+
+```groovy
+pipeline {
+    agent any
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'main', url: 'https://github.com/username/repository.git'
+            }
+        }
+        stage('Build') {
+            steps {
+                sh 'echo "Building project..."'
+            }
+        }
+        stage('Test') {
+            steps {
+                sh 'echo "Running tests..."'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                sh 'echo "Deploying application..."'
+            }
+        }
+    }
+}
+```
+
+---
+
+## ▶️ Step 5: Run the Pipeline
+- Commit and push the **Jenkinsfile** to your repo.  
+- In Jenkins, create a **Pipeline job** → point it to your repo.  
+- Run the job → Jenkins will pull code, build, test, and deploy automatically.  
+
+---
+
+✅ With this setup, Jenkins is now connected to your Git remote. Every time you push code, Jenkins can automatically fetch it and run your pipeline.  
+
+Would you like me to extend this pipeline to **trigger automatically on every GitHub push (webhook setup)** so you don’t have to run jobs manually?

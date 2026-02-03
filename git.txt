@@ -7,3 +7,10 @@
 7. git status
 8. git clone link
 9.git config 
+
+10. Add a remote repository
+Choose either HTTPS or SSH depending on how you connect:
+- HTTPS example:
+git remote add origin https://github.com/username/repository.git
+
+
