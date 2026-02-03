@@ -1,0 +1,9 @@
+1. git init
+2. git add
+3. git commit -m "first commit(text)"
+4. git push origin main/master
+5. git branches
+6. git checkout branchname(new)
+7. git status
+8. git clone link
+9.git config 
