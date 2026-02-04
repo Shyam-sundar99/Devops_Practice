@@ -16,4 +16,5 @@ sudo apt install Jenkins
 sudo systemctl start jenkins
 sudo systemctl enable jenkins
 added a new line for webhook in jenkins
+added new line for webhook only
 
