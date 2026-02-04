@@ -12,5 +12,5 @@
 Choose either HTTPS or SSH depending on how you connect:
 - HTTPS example:
 git remote add origin https://github.com/username/repository.git
-
+Added New Line for POLLSCM Build for Jenkins
 
