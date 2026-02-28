@@ -7,3 +7,4 @@ this the sample file.
 ::q!
 this is for Second change
 this is the new text from macbook
+added test in console
